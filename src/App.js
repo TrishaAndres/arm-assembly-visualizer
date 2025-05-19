@@ -79,7 +79,6 @@ function App() {
       case 'mov r2, #0': newRegs.r2 = 0; break;
 
       // Math Loop
-      case 'mov r5, #0': newRegs.r5 = 0; break;
       case 'sub r0, r5, #1': newRegs.r0 = newRegs.r5 - 1; break;
       case 'sub r1, r5, #7': newRegs.r1 = newRegs.r5 - 7; break;
       case 'mul r0, r0, r1': newRegs.r0 = newRegs.r0 * newRegs.r1; break;
