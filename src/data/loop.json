@@ -1,0 +1,14 @@
+[
+    { "line": "mov r5, #0", "effect": "X = 0" },
+    { "line": "sub r0, r5, #1", "effect": "(X - 1)" },
+    { "line": "sub r1, r5, #7", "effect": "(X - 7)" },
+    { "line": "mul r0, r0, r1", "effect": "temp1 = (X - 1) * (X - 7)" },
+    { "line": "mul r1, r5, r5", "effect": "temp2 = X * X" },
+    { "line": "sub r0, r0, r1", "effect": "Y = temp1 - temp2" },
+    { "line": "mov r3, r0", "effect": "Store in Y" },
+    { "line": "printf", "effect": "Print Y" },
+    { "line": "add r5, r5, #1", "effect": "X++" },
+    { "line": "cmp r5, #10", "effect": "Compare X and 10" },
+    { "line": "ble loop", "effect": "Repeat loop if X ≤ 10" }
+  ]
+  

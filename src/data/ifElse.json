@@ -1,0 +1,12 @@
+[
+    { "line": "mov r0, #1", "effect": "X = 1" },
+    { "line": "mov r1, #2", "effect": "Y = 2" },
+    { "line": "mov r2, #3", "effect": "Z = 3" },
+    { "line": "cmp r0, r1", "effect": "Compare X and Y" },
+    { "line": "bne else_part", "effect": "If not equal, branch to else" },
+    { "line": "mov r2, #1", "effect": "Z = 1" },
+    { "line": "bal end_if", "effect": "Skip else" },
+    { "line": "mov r2, #0", "effect": "Z = 0" },
+    { "line": "printf", "effect": "Print Z" }
+  ]
+  

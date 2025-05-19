@@ -1,0 +1,10 @@
+[
+    { "line": "mov r2, #0", "effect": "r2 = 0" },
+    { "line": "mov r3, #4", "effect": "r3 = 4" },
+    { "line": "add r2, r2, r3", "effect": "r2 = r2 + r3" },
+    { "line": "sub r3, r3, #1", "effect": "r3 = r3 - 1" },
+    { "line": "cmp r3, #0", "effect": "compare r3 with 0" },
+    { "line": "bne do_top", "effect": "loop back if r3 != 0" },
+    { "line": "printf", "effect": "print r2" }
+  ]
+  

@@ -1,0 +1,12 @@
+[
+    { "line": "mov r4, #0", "effect": "A = 0" },
+    { "line": "mov r5, #1", "effect": "B = 1" },
+    { "line": "mov r6, #0", "effect": "C = 0" },
+    { "line": "cmp r4, #17", "effect": "Compare A and 17" },
+    { "line": "bge done", "effect": "Break if A > 17" },
+    { "line": "add r4, r4, r5", "effect": "A = A + B" },
+    { "line": "add r6, r6, #1", "effect": "C = C + 1" },
+    { "line": "bal test", "effect": "Repeat while loop" },
+    { "line": "printf", "effect": "Print A, B, C" }
+  ]
+  
