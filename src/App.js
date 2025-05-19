@@ -85,7 +85,6 @@ function App() {
         setStep(8);
         setRegisters(newRegs);
         return;
-      case 'mov r2, #0': newRegs.r2 = 0; break;
 
       // Math Loop 
       case 'sub r0, r5, #1': newRegs.r0 = newRegs.r5 - 1; break;
