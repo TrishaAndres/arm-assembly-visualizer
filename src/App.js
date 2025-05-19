@@ -37,7 +37,6 @@ function App() {
     const inst = instructions[step];
     const newRegs = { ...registers };
 
-    // Save history for backward stepping
     setHistory(prev => [...prev, { step, registers: { ...registers } }]);
 
     switch (inst.line) {
@@ -48,7 +47,9 @@ function App() {
       case 'sub r3, r3, #1': newRegs.r3 -= 1; break;
       case 'bne do_top':
         if (newRegs.r3 !== 0) {
-          setStep(2); setRegisters(newRegs); return;
+          setStep(2);
+          setRegisters(newRegs);
+          return;
         }
         break;
 
@@ -62,7 +63,10 @@ function App() {
         break;
       case 'add r4, r4, r5': newRegs.r4 += newRegs.r5; break;
       case 'add r6, r6, #1': newRegs.r6 += 1; break;
-      case 'bal test': setStep(3); setRegisters(newRegs); return;
+      case 'bal test':
+        setStep(3);
+        setRegisters(newRegs);
+        return;
 
       // If-Else
       case 'mov r0, #1': newRegs.r0 = 1; break;
@@ -71,14 +75,19 @@ function App() {
       case 'cmp r0, r1': break;
       case 'bne else_part':
         if (newRegs.r0 !== newRegs.r1) {
-          setStep(6); setRegisters(newRegs); return;
+          setStep(6);
+          setRegisters(newRegs);
+          return;
         }
         break;
       case 'mov r2, #1': newRegs.r2 = 1; break;
-      case 'bal end_if': setStep(8); setRegisters(newRegs); return;
+      case 'bal end_if':
+        setStep(8);
+        setRegisters(newRegs);
+        return;
       case 'mov r2, #0': newRegs.r2 = 0; break;
 
-      // Math Loop
+      // Math Loop 
       case 'sub r0, r5, #1': newRegs.r0 = newRegs.r5 - 1; break;
       case 'sub r1, r5, #7': newRegs.r1 = newRegs.r5 - 7; break;
       case 'mul r0, r0, r1': newRegs.r0 = newRegs.r0 * newRegs.r1; break;
@@ -89,7 +98,9 @@ function App() {
       case 'cmp r5, #10': break;
       case 'ble loop':
         if (newRegs.r5 <= 10) {
-          setStep(1); setRegisters(newRegs); return;
+          setStep(1);
+          setRegisters(newRegs);
+          return;
         }
         break;
 
@@ -106,7 +117,7 @@ function App() {
     const previous = history[history.length - 1];
     setStep(previous.step);
     setRegisters(previous.registers);
-    setHistory(history.slice(0, history.length - 1));
+    setHistory(history.slice(0, -1));
   };
 
   return (
